@@ -89,7 +89,7 @@ module.exports = async function(repo, isoString) {
 
     // Set first argument to "true" to
     // debug our returned data
-    sortedUsers.map(user => {
+    sortedUsers.reverse().map(user => {
       debug(false, user.login, comments, issues, pulls, stats, uniq)
     })
 
