@@ -87,10 +87,11 @@ module.exports = async function(repo, isoString) {
     // Sort by Comments
     let sortedUsers = await uniq.sort((a, b) => b.comments - a.comments)
 
-    // Debug our returned data
-    // sortedUsers.map(user => {
-    //   debug(user.login, comments, issues, pulls, stats, uniq)
-    // })
+    // Set first argument to "true" to
+    // debug our returned data
+    sortedUsers.map(user => {
+      debug(false, user.login, comments, issues, pulls, stats, uniq)
+    })
 
     return sortedUsers
   } catch (e) {

@@ -8,39 +8,41 @@
 
 const res = require('./response')
 
-module.exports = function(login, comments, issues, pulls, stats, uniq) {
-  console.log('-----')
+module.exports = function(init, login, comments, issues, pulls, stats, uniq) {
+  if (init === true) {
+    console.log('-----')
 
-  comments.map(i => {
-    if (i.login === login) {
-      res(i)
-    }
-  })
+    comments.map(i => {
+      if (i.login === login) {
+        res(i)
+      }
+    })
 
-  issues.map(i => {
-    if (i.login === login) {
-      res(i)
-    }
-  })
+    issues.map(i => {
+      if (i.login === login) {
+        res(i)
+      }
+    })
 
-  pulls.map(i => {
-    if (i.login === login) {
-      res(i)
-    }
-  })
+    pulls.map(i => {
+      if (i.login === login) {
+        res(i)
+      }
+    })
 
-  stats.map(i => {
-    if (i.login === login) {
-      res(i)
-    }
-  })
+    stats.map(i => {
+      if (i.login === login) {
+        res(i)
+      }
+    })
 
-  uniq.map(i => {
-    if (i.login === login) {
-      console.log('')
-      res('COMBINED DATA IS ...')
-      res(i)
-      console.log('')
-    }
-  })
+    uniq.map(i => {
+      if (i.login === login) {
+        console.log('')
+        res('COMBINED DATA IS ...')
+        res(i)
+        console.log('')
+      }
+    })
+  }
 }
