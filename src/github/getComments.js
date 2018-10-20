@@ -6,12 +6,12 @@ module.exports = async function(logins) {
   const uniqueLogins = []
 
   try {
-    // Create unique array of logins & JSON template
+    // Create unique array of logins & data template
     await logins.map(login => {
       if (!uniqueLogins.includes(login)) {
         uniqueLogins.push(login)
 
-        // Create JSON schema template
+        // Create data template
         comments.push({
           login: login,
           comments: 0,
@@ -20,7 +20,7 @@ module.exports = async function(logins) {
       }
     })
 
-    // Map all logins to unique JSON schema
+    // Map all logins to unique data template
     await logins.map(login => {
       uniqueLogins.map(unique => {
         if (login === unique) {
