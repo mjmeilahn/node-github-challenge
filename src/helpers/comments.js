@@ -2,6 +2,7 @@ const error = require('./error')
 const github = require('../github')
 const route = require('./routes')
 const stacktrace = require('./stacktrace')
+const debug = require('./debug')
 
 module.exports = async function(repo, isoString) {
   let responses = []
@@ -48,7 +49,6 @@ module.exports = async function(repo, isoString) {
       })
     })
 
-    // Create unique array of logins
     await users.map(user => {
       if (!uniq.includes(user.login)) {
         uniq.push(user.login)
@@ -57,12 +57,7 @@ module.exports = async function(repo, isoString) {
 
     // Return combined user data
     await uniq.map((login, i) => {
-      // .reduce() skips over first .map() iteration
-      if (i === 0) {
-        users.unshift('')
-      }
-
-      users.reduce((acc, user) => {
+      users.map(user => {
         // Set first loop values
         let comments = 0
         let total = 0
@@ -91,6 +86,11 @@ module.exports = async function(repo, isoString) {
 
     // Sort by Comments
     let sortedUsers = await uniq.sort((a, b) => b.comments - a.comments)
+
+    // Debug our returned data
+    // sortedUsers.map(user => {
+    //   debug(user.login, comments, issues, pulls, stats, uniq)
+    // })
 
     return sortedUsers
   } catch (e) {
