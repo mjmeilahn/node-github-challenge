@@ -1,3 +1,3 @@
-module.exports = async function(value) {
-  return await console.dir(value, { colors: true, depth: 4 })
+module.exports = function(value) {
+  return console.dir(value, { colors: true, depth: 4 })
 }

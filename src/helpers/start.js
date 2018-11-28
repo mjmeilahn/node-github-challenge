@@ -18,5 +18,5 @@ module.exports = async function(repo, isoString) {
   const data = await comments(repo, isoString)
 
   // 3. Print report
-  await report(data)
+  report(data)
 }

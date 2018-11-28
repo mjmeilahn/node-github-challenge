@@ -27,15 +27,15 @@ module.exports = async function(repo, isoString) {
     // If callbacks are not empty,
     // add their contents to generic data wrapper
     if (comments.length) {
-      await responses.push(comments)
+      responses.push(comments)
     }
 
     if (issues.length) {
-      await responses.push(issues)
+      responses.push(issues)
     }
 
     if (pulls.length) {
-      await responses.push(pulls)
+      responses.push(pulls)
     }
 
     if (stats.length) {

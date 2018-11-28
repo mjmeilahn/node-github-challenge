@@ -1,3 +1,3 @@
-module.exports = async function(message) {
-  await console.log(message)
+module.exports = function(message) {
+  console.log(message)
 }

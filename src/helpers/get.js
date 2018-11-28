@@ -25,7 +25,7 @@ const http = axios.create({
 module.exports = async function(url) {
   try {
     // Quit application if we have no more calls
-    await jsonfile.readFile(file, function(err, obj) {
+    jsonfile.readFile(file, function(err, obj) {
       if (obj.remaining === '0') {
         let currentHour = Date.now()
         let hoursFromSave = Math.abs(currentHour - obj.time) / 3600000

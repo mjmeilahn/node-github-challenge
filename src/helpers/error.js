@@ -1,5 +1,5 @@
 const chalk = require('chalk')
 
-module.exports = async function(message) {
-  await console.error('\n' + chalk.yellow(message))
+module.exports = function(message) {
+  console.error('\n' + chalk.yellow(message))
 }

@@ -4,7 +4,7 @@ const log = require('./log')
 
 module.exports = async function(users) {
   await events('15%')
-  await events('done')
+  events('done')
 
   // Log empty lines for readability
   log('')
@@ -15,7 +15,7 @@ module.exports = async function(users) {
   const spaces = users[0].comments.toString().length
 
   // Print to command line
-  await users.map(user => {
+  users.map(user => {
     let comments = leftPad(user.comments.toString(), spaces)
     let login = user.login
     let commits = user.total
