@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const log = require('./log')
 
-module.exports = async function(limit, remain) {
+module.exports = function(limit, remain) {
   log(`\nRemaining API calls: ${remain}`)
 
   let remaining = parseInt(remain, 0)
