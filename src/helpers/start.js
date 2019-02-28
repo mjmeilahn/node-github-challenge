@@ -3,7 +3,7 @@
 
   1. Initialize Progress Bar
   2. Fetching Comments
-  3. Printing Report
+  3. Printing Benchmarks & Report
 */
 
 const comments = require('./comments')
@@ -21,13 +21,11 @@ module.exports = async function(repo, isoString) {
   // 2. Fetch Comments
   const data = await comments(repo, isoString)
 
-  // 3. Print Report
-  report(data)
-
-  // 4. Print Benchmark
+  // 3. Print Benchmarks & Report
   const end = process.hrtime(start)
   const words = prettyHRTime(end, {precise:true})
-
   log('')
   log(words)
+
+  report(data)
 }
