@@ -16,8 +16,8 @@
 const argv = require('yargs').argv
 const chalk = require('chalk')
 const error = require('./helpers/error')
-const start = require('./helpers/start')
 const log = require('./helpers/log')
+const start = require('./helpers/start')
 const type = require('./helpers/type')
 
 // CLI input
@@ -51,7 +51,6 @@ if (type.str(repo) && type.repo(repo)) {
   message += `${date} ${chalk.red('for')} "${repo}"...`
   log(message)
 
-  // start application lifecycle
   start(repo, isoString)
 } else {
   error('\nInvalid repo, please try again')
