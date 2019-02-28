@@ -7,6 +7,10 @@ const Emitter = require('events')
 const emtr = new Emitter()
 const log = require('../helpers/log')
 const notify = require('../helpers/notify')
+const prettyHRTime = require('pretty-hrtime')
+
+// Benchmark
+let start;
 
 // Progress Bar
 const bar = new _cliProgress.Bar({}, _cliProgress.Presets.legacy)
@@ -16,6 +20,10 @@ let limit = 5000
 let remaining = 5000
 
 emtr.on('begin', () => {
+
+  // Begin Benchmark
+  start = process.hrtime()
+
   // Instantiate Progress bar
   log('')
   bar.start(100, 0)
@@ -36,9 +44,13 @@ emtr.on('request', api => {
 emtr.on('done', () => {
   bar.stop()
 
+  // End Benchmark
+  const end = process.hrtime(start)
+  const words = prettyHRTime(end, {precise:true})
+
   // Print API capacities to CLI
   setTimeout(function() {
-    notify(limit, remaining)
+    notify(limit, remaining, words)
   }, 1000)
 })
 

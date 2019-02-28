@@ -1,8 +1,9 @@
 const chalk = require('chalk')
 const log = require('./log')
 
-module.exports = function(limit, remain) {
+module.exports = function(limit, remain, benchmark) {
   log(`\nRemaining API calls: ${remain}`)
+  log(`Time Elapsed: ${benchmark}`)
 
   let remaining = parseInt(remain, 0)
   let difference = (remaining / limit * 100)
