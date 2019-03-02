@@ -7,7 +7,7 @@
 
   4. Github folder is where all requests are handled
 
-  5. Events folder is for Progress Bar,
+  5. Events folder is for Benchmarks, Progress Bar,
   API Limits, and printed message about API capacitance
 
   6. /helpers/report prints data to command line
