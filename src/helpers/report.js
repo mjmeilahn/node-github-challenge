@@ -2,7 +2,7 @@ const events = require('../events')
 const leftPad = require('left-pad')
 const log = require('./log')
 
-module.exports = async function(users) {
+module.exports = function(users) {
   events('15%')
   events('done')
 
